@@ -49,15 +49,15 @@ void loop() {
 
 void game() {
 
-  bool end = FALSE;
+  bool end = 0;
   int score = 0;
 
-  time_increment = 100000; //100 seconds
+  int time_increment = 100000; //100 seconds
 
     
-  while (end != TRUE){
+  while (end != 1){
     //Randomly call
-    game_call = random(1,4); //1-slide; 2-flex; 3-snap
+    int game_call = random(1,4); //1-slide; 2-flex; 3-snap
     speaker_out(game_call);
     countdown(5000); //5 second countdown  
     
@@ -73,7 +73,7 @@ void game() {
           lcd.clear();
           lcd.setCursor(2,0);
           lcd.print("Wrong input, Game Over!!"); 
-          end = FALSE;
+          end = 0;
         }
         break;
        case 2:
@@ -86,12 +86,12 @@ void game() {
           lcd.clear();
           lcd.setCursor(2,0);
           lcd.print("Wrong input, Game Over!!"); 
-          end = FALSE;
+          end = 0;
         }
         break;
         case 3:
         int button_value = digitalRead(SNAP_BUTTON);
-        f(button_value==1){
+        if(button_value==1){
           increaseScore(score);
           time_increment = time_increment-1000; //reduce time by 1 second          
         }
@@ -99,7 +99,7 @@ void game() {
           lcd.clear();
           lcd.setCursor(2,0);
           lcd.print("Wrong input, Game Over!!"); 
-          end = FALSE;
+          end = 0;
         }
         break;
       }
@@ -110,7 +110,7 @@ void game() {
         lcd.print(String("Score: ")+String(score));
         lcd.setCursor(2,1);  
         lcd.print("You Win!!");               
-        end = FALSE;      
+        end = 0;      
     }
 
   }
@@ -118,9 +118,9 @@ void game() {
 }
 
 
-void countdown(time){
+void countdown(int time){
     lcd.clear();
-    j=0;
+    int j=0;
     for (int i=(time/1000); i>0 ;i--){
         lcd.setCursor(j,0);      
         lcd.print(i + "...");
