@@ -65,9 +65,9 @@ void game() {
       switch (game_call) {
         case 1:
         int slide_pot_value = analogRead(PIN_SLIDE_POT_A);
+        time_increment = time_increment-1000; //reduce time by 1 second
         if(slide_pot_value>512){
-          increaseScore(score);
-          time_increment = time_increment-1000; //reduce time by 1 second          
+          increaseScore(score);          
         }
         else{
           lcd.clear();
@@ -78,9 +78,9 @@ void game() {
         break;
        case 2:
         int flex_pot_value = analogRead(PIN_FLEX_POT_A);
+        time_increment = time_increment-1000; //reduce time by 1 second
         if(flex_pot_value>512){
-          increaseScore(score);
-          time_increment = time_increment-1000; //reduce time by 1 second          
+          increaseScore(score);         
         }
         else{
           lcd.clear();
@@ -91,9 +91,9 @@ void game() {
         break;
         case 3:
         int button_value = digitalRead(SNAP_BUTTON);
+        time_increment = time_increment-1000; //reduce time by 1 second
         if(button_value==1){
-          increaseScore(score);
-          time_increment = time_increment-1000; //reduce time by 1 second          
+          increaseScore(score);     
         }
         else{
           lcd.clear();
