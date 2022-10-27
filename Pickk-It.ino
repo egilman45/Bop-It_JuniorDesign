@@ -112,6 +112,14 @@ void game() {
         lcd.print("You Win!!");               
         end = 0;      
     }
+    if(time_increment==0){
+       lcd.clear();
+        lcd.setCursor(2,0);
+        lcd.print(String("Score: ")+String(score));
+        lcd.setCursor(2,1);  
+        lcd.print("Game over");               
+        end = 0;            
+    }
 
   }
   
